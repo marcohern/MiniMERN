@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
         $user->name = 'Marco Hernandez';
         $user->password = Hash::make('system');
         $user->email = 'marcohern@gmail.com';
+        $user->desc = 'Main Administrator and Creator of this website';
         $user->save();
     }
 }
