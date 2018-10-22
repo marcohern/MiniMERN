@@ -16,13 +16,13 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'picture'], function ()  {
+
+    Route::get('/upload', "DimagesController@upload")->name('image-upload' );
+
     Route::get('{domain}/{slug}/{profile}/{density}/{index?}', "DimController@full");
     Route::get('{domain}/{slug}/{index?}', "DimController@original");
-
-    Route::post('/store', 'DimagesController@store')->name('image-store' );
-    Route::get('/upload', "DimagesController@upload")->name('image-upload' );
 
     Route::get('/', "DimagesController@index");
 });
 
-
+Route::post('/store', 'DimagesController@store')->name('image-store' );

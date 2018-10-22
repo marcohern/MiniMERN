@@ -40,7 +40,7 @@ class DimagesController extends Controller {
     }
 
     public function store(Request $r) {
-        return view('upload',['domain' => $domain, 'dimages' => $dimages]);
+        return view('upload');
         /*
         $filename = $r->picture->getClientOriginalName();
         //return ['success' => true, 'id' => $id, 'filename' => $filename];
