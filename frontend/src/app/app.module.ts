@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CoreModule } from './modules/core/core.module';
+import { UsersModule } from './modules/users/users.module';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './modules/core/core.module';
-
+import { routes } from './app-routes';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { CoreModule } from './modules/core/core.module';
   ],
   imports: [
     BrowserModule,
-    CoreModule
+    CoreModule,
+    UsersModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

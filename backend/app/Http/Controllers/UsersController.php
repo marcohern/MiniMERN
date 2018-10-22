@@ -57,4 +57,11 @@ class UsersController extends Controller
 
         return ['success' => $r];
     }
+
+    public function postimg(Request $request) {
+        if ($request->file('picture')->isValid()) {
+            
+        }
+        return ['success' => false];
+    }
 }
