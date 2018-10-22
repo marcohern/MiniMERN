@@ -20,6 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('auth:api')->get('/users', 'UsersController@browse');
 Route::middleware('auth:api')->get('/users/{id}', 'UsersController@get');
 Route::middleware('auth:api')->post('/users', 'UsersController@create');
-Route::middleware('auth:api')->post('/users/img', 'UsersController@postimg');
 Route::middleware('auth:api')->put('/users/{id}', 'UsersController@update');
 Route::middleware('auth:api')->delete('/users/{id}', 'UsersController@delete');
