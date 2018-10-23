@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
 
-  private users:User[] = [
+  public users:User[] = [
     { id:1, name:"Brad Pitt", email:"bpitt@mail.com", desc:'' },
     { id:2, name:"Tom Cruise", email:"tcruise@mail.com", desc:'' },
     { id:3, name:"Keifer Sutherland", email:"hsutherland@mail.com", desc:'' }

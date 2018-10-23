@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { LoginResult } from './login-result';
+import { Result } from './result';
 
 @Injectable()
 export class AuthService {
@@ -49,15 +51,23 @@ export class AuthService {
     return this.token;
   }
 
-  public get(url:string):Observable<any> {
-    return this.http.get(url, {
+  public get<T>(url:string):Observable<T> {
+    return this.http.get<T>(url, {
       headers: this.getHeaders()
     });
   }
 
-  public post(url:string, data:any):Observable<any> {
-    return this.http.post(url, data, {
+  public post<T>(url:string, data:any):Observable<T> {
+    return this.http.post<T>(url, data, {
       headers:this.getHeaders()
     });
+  }
+
+  public login(email:string, password:string): Observable<LoginResult> {
+    return this.post<LoginResult>('/api/account/login', {email:email, password:password});
+  }
+
+  public logout():Observable<Result> {
+    return this.post<Result>('/api/account/logout',{});
   }
 }
