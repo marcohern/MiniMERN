@@ -1,3 +1,23 @@
-<p>
-  user-details works!
-</p>
+<div class="container">
+  <button class="btn btn-primary" [routerLink]="['/users']"><i class="fas fa-angle-left"></i> Return</button>
+  <hr>
+  <form [formGroup]="userForm">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" formGroupName="email">
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter name" formGroupName="name">
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <textarea rows="6" formControlName="desc" class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Save</button>
+  </form>
+</div>
