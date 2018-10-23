@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="auth.authenticated()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" [routerLink]="['/']">MiniMERN</a>
@@ -14,11 +14,8 @@
             <li class="nav-item">
               <a class="nav-link" [routerLink]="['/users']">Users</a>
             </li>
-            <li class="nav-item" *ngIf="auth.authenticated()">
-              <a class="nav-link" [routerLink]="['/logout']">Logout</a>
-            </li>
-            <li class="nav-item" *ngIf="!auth.authenticated()">
-              <a class="nav-link" [routerLink]="['/login']">Login</a>
+            <li class="nav-item">
+              <button class="btn btn-danger" (click)="onLogout($event)">Logout</button>
             </li>
           </ul>
         </div>

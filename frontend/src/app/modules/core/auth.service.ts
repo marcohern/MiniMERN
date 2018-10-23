@@ -9,6 +9,14 @@ export class AuthService {
 
   private token:string = null;
   private isAuthenticated = false;
+  
+  private getHeaders() {
+    var headers:HttpHeaders = new HttpHeaders();
+    if (this.token != null) {
+      headers.append("Authentication", "Bearer " + this.token);
+    }
+    return headers;
+  }
 
   constructor(private http:HttpClient) { }
 
@@ -28,20 +36,17 @@ export class AuthService {
     }
   }
 
+  public clearToken() {
+    window.sessionStorage.removeItem(AuthService.tokenId);
+    this.isAuthenticated = false;
+  }
+
   public authenticated():boolean {
     return this.isAuthenticated;
   }
 
   public getToken():string {
     return this.token;
-  }
-
-  private getHeaders() {
-    var headers:HttpHeaders = new HttpHeaders();
-    if (this.token != null) {
-      headers.append("Authentication", "Bearer " + this.token);
-    }
-    return headers;
   }
 
   public get(url:string):Observable<any> {

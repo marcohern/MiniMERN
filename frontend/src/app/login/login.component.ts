@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../modules/core/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private auth:AuthService, private router:Router) { }
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -20,7 +23,8 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin($event) {
-    console.log($event, this.loginForm.value, this.loginForm.valid);
+    this.auth.setToken('ABCDEFGHIJKLMNOP');
+    this.router.navigate(['/dashboard']);
   }
 
 }

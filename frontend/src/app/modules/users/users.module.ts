@@ -5,10 +5,12 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { RouterModule } from '@angular/router';
 import { userRoutes } from './user-routes';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    CoreModule,
     RouterModule.forChild(userRoutes)
   ],
   declarations: [
