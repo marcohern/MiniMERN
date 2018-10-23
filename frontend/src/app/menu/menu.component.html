@@ -1,3 +1,27 @@
-<p>
-  menu works!
-</p>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" [routerLink]="['/']">MiniMERN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsedItems" aria-controls="collapsedItems" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="collapsedItems">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/']">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/users']">Users</a>
+            </li>
+            <li class="nav-item" *ngIf="auth.authenticated()">
+              <a class="nav-link" [routerLink]="['/logout']">Logout</a>
+            </li>
+            <li class="nav-item" *ngIf="!auth.authenticated()">
+              <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
